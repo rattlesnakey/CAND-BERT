@@ -12,7 +12,7 @@ from pywebio.output import *
 from pywebio import config
 
 class Init(object):
-    def __init__(self, best_model_path, evaluate = False):
+    def __init__(self, best_model_path, evaluate=False):
         self.config = Config()
         self.tokenizer = self.load_tokenizer()
         self.best_model = self.load_best_model(best_model_path)
@@ -137,25 +137,3 @@ if __name__ == '__main__':
     best_model_path = '../saved_models/CAND_BERT/model1Bertlaw_epoch18.pt'
     init = Init(best_model_path, evaluate = False)
     start_server(main_web, port=8023)
-    # while True:
-    #     # content_id = input('请输入文号:')
-    #     # print()
-    #     # para_content = input('请输入段落内容:')
-    #     # print()
-    #     # cand_set = input('请输入被告人集合(逗号隔开):')
-    #     # print()
-    #     # cand_set = cand_set.strip().split(',')
-    #     # sen_content = input('请输入句子内容:')
-    #     # print()
-    #     # factor = input('请输入要素名称:')
-    #     # print()
-    #     # origin_factor = input('请输入要素原始值:')
-    #     # print()
-    #     content_id, para_content  = "（2014）沙刑初字第169号", "经审理查明，被告人万某某于2012年9月至2013年11月10日间，在未取得客运许可的情况下，通过允许自带车辆加入的方式，提供印发服务卡片、制定服务规则、确定收费标准、设立电话总台、保证往返次数等支持，组建了由多辆无营运资格的私家车组成的往返于大连市长兴岛至大连市内四区拼客的固定线路营运车队“宏驰骋快捷车队”，并定期收取司机费用获利，违法所得人民币42000余元。 被告人王某某、陈某某分别于2012年9月至2013年11月10日期间，自带车辆加入由万某某组建的、无营运资格的私家车组成的、往返于大连市长兴岛至大连市内四区拼客的固定线路营运车队“宏驰骋快捷车队”，从事非法经营活动。被告人王某某违法所得人民币32000余元；被告人陈某某违法所得人民币12000余元。"
-    #     cand_set, sen_content = ["万某某","王某某","陈某某"], "被告人王某某、陈某某分别于2012年9月至2013年11月10日期间，自带车辆加入由万某某组建的、无营运资格的私家车组成的、往返于大连市长兴岛至大连市内四区拼客的固定线路营运车队“宏驰骋快捷车队”，从事非法经营活动"
-    #     factor, origin_factor = "其他严重扰乱市场秩序的非法经营行为", "自带车辆加入由万某某组建的、无营运资格的私家车组成的、往返于大连市长兴岛至大连市内四区拼客的固定线路营运车队“宏驰骋快捷车队”，从事非法经营活动"
-    #     temp_dict = [{'文号':content_id, '段落内容':para_content, '被告人集合':cand_set, '句子':sen_content, '要素名称':factor, '要素原始值':origin_factor}, ]
-    #     json.dump(temp_dict, open('../data/temp_test.json','w+'))
-    #     predictor = Predictor('../data/temp_test.json', init, evaluate = False)
-    #     predictor.predict()
-    #     break

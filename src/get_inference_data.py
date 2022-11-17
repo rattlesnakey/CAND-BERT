@@ -2,6 +2,7 @@
 import json
 from tqdm import tqdm
 from data_utils import *
+
 class Preprocess_Data_for_Inference(object):
     def __init__(self, filename):
         self.f = json.load(open(filename,'r'))
@@ -151,14 +152,14 @@ class BERT_Preprocess_for_Inference(object):
                         temp_list = [cand, s, origin_factor, factor, str(0)]
                         cur_str = ' ||| '.join(temp_list)
                     self.inference_data.append(cur_str)
-            # 没有label的数据集
+            # 没有 label 的数据集
             else:
                 para_id, para, cand_set, s, factor, origin_factor = t
                 for cand in cand_set:
                     temp_list = [cand, s, origin_factor, factor]
                     cur_str = ' ||| '.join(temp_list)
                     self.inference_data.append(cur_str)
-            # 分隔一个sample
+            # 分隔一个 sample
             self.inference_data.append('*')
         return self.inference_data  # ["cand ||| origin_factor ||| factor", ]
 

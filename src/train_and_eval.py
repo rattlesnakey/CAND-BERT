@@ -27,7 +27,7 @@ def train_fn(data_loader, model, optimizer, device):
         epoch_loss += loss.item()
     return epoch_loss / len(data_loader)
 
-# 最后还要写一个predict的函数
+
 def eval_fn(data_loader, model, device, save_path, num_labels):
     print("________________________________________________")
     model.eval()

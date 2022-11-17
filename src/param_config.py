@@ -14,8 +14,7 @@ class Config():
         self.lr = 4e-5
         self.num_labels = 2
         self.dropout = 0
-        #! 之前跑lask-1的时候，也是设的requires_grad = False，可以重新跑一下...
-        self.requires_grad = False
+        self.requires_grad = True
         self.baseline = False
         self.baseline_prefix = "../saved_models/baseline/"
         self.model1_prefix = "../saved_models/CAND_BERT/"
